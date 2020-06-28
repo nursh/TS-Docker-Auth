@@ -1,21 +1,20 @@
 version: 2.1
-orbs:
-  node: circleci/node@1.1.6
-jobs:
-  build-and-test:
-    executor:
-      name: node/default
 
-    working_directory: ~/repo/server
+orbs: 
+  node: circleci/node@3.0.0
+
+jobs:
+  server:
+    executor: node/default
 
     steps:
-      - checkout:
-        path: ~/repo
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm test
+      - checkout
+      - node/install-packages:
+          app-dir: ~/project/server
+          override-ci-command: npm install
+      - run: npm test
+
 workflows:
     build-and-test:
       jobs:
-        - build-and-test
+        - server
