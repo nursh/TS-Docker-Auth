@@ -6,4 +6,6 @@ orbs:
 workflows:
     test-and-deploy:
       jobs:
-        - node/test
+        - node/test:
+            app-dir: ~/project/server
+            
