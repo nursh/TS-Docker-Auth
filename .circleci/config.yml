@@ -9,8 +9,8 @@ jobs:
 
     steps:
       - checkout
+      - app-dir: server
       - node/install-packages:
-          app-dir: server
           override-ci-command: npm install
       - run: npm test
 
