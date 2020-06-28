@@ -9,7 +9,8 @@ jobs:
 
     steps:
       - checkout
-      - node/install-packages
+      - node/install-packages:
+          app-dir: ~/project/server
 
 workflows:
     build-and-test:
