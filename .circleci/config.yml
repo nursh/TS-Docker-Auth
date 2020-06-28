@@ -9,9 +9,7 @@ jobs:
 
     steps:
       - checkout
-      - node/install-packages:
-          pkg-manager: yarn
-      - run: npm test
+      - node/install-packages
 
 workflows:
     build-and-test:
