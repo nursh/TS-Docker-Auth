@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - checkout:
-        - path: ~/repo
+        path: ~/repo
       - node/with-cache:
           steps:
             - run: npm install
