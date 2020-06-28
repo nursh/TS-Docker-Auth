@@ -7,10 +7,12 @@ jobs:
   server:
     executor: node/default
 
+    working_directory: ~/project/server
+
     steps:
       - checkout
       - node/install-packages:
-          app-dir: ~/server
+          app-dir: ~/project
           override-ci-command: npm install
       - run: npm test
 
