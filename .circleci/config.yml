@@ -11,7 +11,7 @@ jobs:
       - checkout
       - node/install-packages:
           app-dir: ~/project/server
-          run-command: test
+      - run: npm test
 
 workflows:
     build-and-test:
