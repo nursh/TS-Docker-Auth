@@ -9,9 +9,8 @@ jobs:
 
     steps:
       - checkout
-      - app-dir: server
       - node/install-packages:
-          override-ci-command: npm install
+          pkg-manager: yarn
       - run: npm test
 
 workflows:
