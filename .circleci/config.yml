@@ -3,11 +3,7 @@ version: 2.1
 orbs: 
   node: circleci/node@3.0.0
 
-jobs:
-  server-test:
-    - node/test
-
 workflows:
-    build-and-test:
+    test-and-deploy:
       jobs:
-        - server-test
+        - node/test
