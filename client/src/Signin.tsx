@@ -3,18 +3,24 @@ import React from 'react'
 export const Signin = () => {
   return (
     <div>
-      <button>Sign in With Google</button>
-      <button>Sign in with Github</button>
+      <button className="btn">Sign in With Google</button>
+      <button className="btn">Sign in with Github</button>
 
-      <form action="">
+      <hr/>
+      
+      <form>
         <div>
-          <label htmlFor="password"></label>
-          <input type="text" id="name" name="name" />
+          <label htmlFor="username">Username:</label>
+          <input type="text" id="username" name="username" />
         </div>
 
         <div>
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password"/>
+          <label htmlFor="password">Password:</label>
+          <input type="password" name="password" id="password" />
+        </div>
+
+        <div>
+          <button className="btn">Submit</button>
         </div>
       </form>
     </div>
