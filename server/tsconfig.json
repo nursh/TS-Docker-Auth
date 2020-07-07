@@ -10,5 +10,9 @@
     "esModuleInterop": true,                                        
     "resolveJsonModule": true
   },
-  "exclude": ["./temp"]
+  "exclude": [
+    "./temp",
+    "./jest.config.js",
+    "./jest-mongodb-config.js"
+  ]
 }
