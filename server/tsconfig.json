@@ -8,11 +8,20 @@
     "rootDir": "./src",                       
     "strict": true,                                      
     "esModuleInterop": true,                                        
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "typeRoots": [
+      "./src/types",
+      "./node_modules/@types"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "types": [ "src/types/types.ts"]
+    }
   },
   "exclude": [
     "./temp",
     "./jest.config.js",
-    "./jest-mongodb-config.js"
+    "./jest-mongodb-config.js",
+    "./build"
   ]
 }

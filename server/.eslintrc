@@ -7,13 +7,13 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:prettier/recommended",
-    "eslint-config-prettier",
     "plugin:jest/recommended",
-    "eslint-config-prettier/@typescript-eslint"
+    "prettier/@typescript-eslint",
+    "prettier"
   ],
   "plugins": [
-    "@typescript-eslint/eslint-plugin"
+    "@typescript-eslint/eslint-plugin",
+    "prettier"
   ],
   "env": {
     "node": true,
