@@ -1,12 +1,13 @@
 import express, { Application } from 'express';
-import { graphqlHTTP } from 'express-graphql';
+import { ApolloServer } from 'apollo-server-express';
 import { makeExecutableSchema } from 'graphql-tools';
 import { applyMiddleware } from 'graphql-middleware';
 import dotenv from 'dotenv';
 
 import { typeDefs, resolvers } from './graphql';
-import { permissions } from './graphql/permissions';
+import { permissions } from './permissions';
 import { connectDatabase } from './db/mongodb';
+import { getUser } from 'utils/auth';
 
 dotenv.config();
 const app = express();
@@ -16,21 +17,20 @@ const port = process.env.PORT || 8080;
 
 async function start(app: Application) {
   const db = await connectDatabase();
-  const schema = makeExecutableSchema({ typeDefs, resolvers });
-  const schemaWithMiddleware = applyMiddleware(schema, permissions);
-  app.use(
-    '/api',
-    graphqlHTTP((req, res) => ({
-      schema: schemaWithMiddleware,
-      context: {
-        req,
-        res,
-        db,
-        user: null
-      },
-      graphiql: true
-    }))
+  const schema = applyMiddleware(
+    makeExecutableSchema({ typeDefs, resolvers }),
+    permissions
   );
+
+  const server = new ApolloServer({
+    schema,
+    context: ({ req }) => ({
+      db,
+      user: getUser(req)
+    })
+  });
+
+  server.applyMiddleware({ app, path: '/api' });
   app.listen(port, () => console.log(`[app]: running on port:${port}`));
 }
 

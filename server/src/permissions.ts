@@ -1,8 +1,8 @@
 import { shield } from 'graphql-shield';
-import { authenticateToken } from './middleware/auth';
+import { isAuthenticated } from './middleware/auth';
 
 export const permissions = shield({
   Query: {
-    books: authenticateToken
+    books: isAuthenticated
   }
 });

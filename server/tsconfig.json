@@ -15,7 +15,8 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "types": [ "src/types/types.ts"]
+      "types": [ "src/types/types.ts" ],
+      "utils/*": [ "src/utils/*" ]
     }
   },
   "exclude": [
