@@ -10,6 +10,7 @@ export const connectDatabase = async (): Promise<Database> => {
   });
   const db = client.db('ts-docker');
   return {
-    users: db.collection('users')
+    users: db.collection('users'),
+    userDetails: db.collection('userDetails')
   };
 };

@@ -7,7 +7,7 @@ export const typeDefs = gql`
 
   type Mutation {
     addBook(title: String!): String!
-    login(name: String!): Tokens!
+    login(login: LoginInput!): Tokens!
     logout: String!
     refreshToken(token: String!): String!
     register(user: UserInput!): String!
@@ -16,6 +16,19 @@ export const typeDefs = gql`
   input UserInput {
     name: String!
     email: String!
+    password: String!
+    role: Role!
+  }
+
+  input LoginInput {
+    name: String!
+    password: String!
+  }
+
+  enum Role {
+    ADMIN
+    MANAGER
+    BASIC
   }
 
   type Book {
