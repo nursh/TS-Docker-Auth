@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 import { Database } from 'types';
 
-const url = `mongodb://localhost:27017/ts-docker`;
+const url = `mongodb://mongo:27017/ts-docker`;
 
 export const connectDatabase = async (): Promise<Database> => {
   const client = await MongoClient.connect(url, {
@@ -10,7 +10,6 @@ export const connectDatabase = async (): Promise<Database> => {
   });
   const db = client.db('ts-docker');
   return {
-    users: db.collection('users'),
-    userDetails: db.collection('userDetails')
+    users: db.collection('users')
   };
 };

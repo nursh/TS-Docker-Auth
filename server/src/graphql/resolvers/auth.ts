@@ -1,17 +1,11 @@
 import { Context, UserArgs, LoginArgs } from 'types';
-import {
-  generateAccessToken,
-  generateRefreshToken,
-  verifyRefreshToken,
-  createPayload
-} from 'utils/jwt';
+import { generateAccessToken, createPayload } from 'utils/jwt';
 
 export const authResolvers = {
   Mutation: {
     login: async (_: undefined, args: { login: LoginArgs }, ctx: Context) => {
-      const { name, password } = args.login;
-
       try {
+        const { name, password } = args.login;
         const { db } = ctx;
         const user = await db.users.findOne({ name });
         if (!user) {
@@ -24,30 +18,12 @@ export const authResolvers = {
 
         // Get the userDetails and create a payload
         const userId = user._id.toHexString();
-        const userDetails = await db.userDetails.findOne({ user_id: userId });
-        const payload = createPayload(userId, userDetails!.role);
+        const payload = createPayload(userId, user.role);
 
-        // Create an accessToken and Refresh token
+        // Create an accessToken
         const accessToken = generateAccessToken(payload);
-        let refreshToken = userDetails!.refreshToken;
-
-        // Check if a refresh token exists, or create one
-        if (!refreshToken) {
-          refreshToken = generateRefreshToken(payload);
-
-          // Update userDetails with new RefreshToken
-          await db.userDetails.updateOne(
-            { user_id: userId },
-            { $set: { refreshToken } }
-          );
-        }
-
-        return {
-          accessToken,
-          refreshToken
-        };
+        return accessToken;
       } catch (error) {
-        console.error(error);
         throw new Error(error);
       }
     },
@@ -62,49 +38,17 @@ export const authResolvers = {
         if (maybeUser) {
           throw new Error(`User ${name} already exists.`);
         }
+
         // create a new user
-        const user = await db.users.insertOne({
+        await db.users.insertOne({
           name,
           password,
-          email
-        });
-
-        // Create user_details for user
-        await db.userDetails.insertOne({
-          user_id: user.insertedId.toHexString(),
+          email,
           role
         });
 
         // Return success
         return 'success';
-      } catch (error) {
-        throw new Error(error);
-      }
-    },
-
-    refreshToken: async (
-      _: undefined,
-      args: { token: string },
-      ctx: Context
-    ) => {
-      const { token } = args;
-      const { db } = ctx;
-
-      try {
-        // Check that the refresh token exists
-        const user = await db.users.findOne({ refreshToken: token });
-
-        // If a user does not exist, throw an error
-        if (!user) {
-          throw new Error('The token provided does not exist.');
-        }
-
-        // Verify that this server signed the token
-        const tokenUser = verifyRefreshToken(token);
-
-        // Create a new access token to send to user
-        const accessToken = generateAccessToken(tokenUser);
-        return accessToken;
       } catch (error) {
         throw new Error(error);
       }

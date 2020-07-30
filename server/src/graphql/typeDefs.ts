@@ -7,9 +7,8 @@ export const typeDefs = gql`
 
   type Mutation {
     addBook(title: String!): String!
-    login(login: LoginInput!): Tokens!
+    login(login: LoginInput!): String!
     logout: String!
-    refreshToken(token: String!): String!
     register(user: UserInput!): String!
   }
 
@@ -34,10 +33,5 @@ export const typeDefs = gql`
   type Book {
     name: String!
     title: String!
-  }
-
-  type Tokens {
-    accessToken: String!
-    refreshToken: String!
   }
 `;
