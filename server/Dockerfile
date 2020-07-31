@@ -18,7 +18,7 @@ CMD [ "npm", "run", "dev" ]
 
 
 
-
+# Test Stage
 FROM dev AS test
 
-CMD [ "npm", "test" ]
+CMD [ "npm", "run", "test:coverage" ]

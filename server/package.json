@@ -9,7 +9,6 @@
     "start": "npm run build && node build/index.js",
     "lint": "eslint --ignore-path ../.gitignore --ext .ts .",
     "prettier": "prettier --write --ignore-path ../.gitignore \"**/*.ts\"",
-    "test": "is-ci \"test:coverage\" \"test:watch\"",
     "test:config": "jest --config jest.config.js",
     "test:coverage": "npm run test:config -- --coverage",
     "test:watch": "npm run test:config -- --watchAll"
@@ -49,8 +48,6 @@
     "eslint-plugin-jest": "^23.16.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
-    "is-ci": "^2.0.0",
-    "is-ci-cli": "^2.1.2",
     "lint-staged": "^10.2.11",
     "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
