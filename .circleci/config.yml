@@ -1,6 +1,5 @@
 version: 2.1
-orbs:
-  codecov: codecov/codecov@1.0.2
+
 jobs:
   build:
     machine:
@@ -12,13 +11,7 @@ jobs:
 
       - run:
           name: "Build docker containers from docker-compose.test.yml"
-          command: docker-compose -f docker-compose.test.yml up --build
-
-      - codecov/upload:
-          file: coverage/*.json
-          token: '${CODECOV_TOKEN}'
-      
-      
+          command: docker-compose -f docker-compose.test.yml up --build  
 
 workflows:
     server:
