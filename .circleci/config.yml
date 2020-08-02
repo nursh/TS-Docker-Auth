@@ -16,6 +16,7 @@ jobs:
 
       - codecov/upload:
           file: coverage/*.json
+          token: '${CODECOV_TOKEN}'
       
       
 
