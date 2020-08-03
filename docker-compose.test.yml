@@ -10,4 +10,4 @@ services:
     volumes:
       - /usr/src/app/node_modules
       - ./server:/app
-      - /usr/src/app/coverage
+      - ./coverage:/usr/src/app/coverage
