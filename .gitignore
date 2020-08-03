@@ -6,4 +6,4 @@ build
 npm-debug.log
 mongodb-binaries/
 coverage/
-temp/
+tmp/

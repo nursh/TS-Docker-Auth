@@ -7,7 +7,7 @@ module.exports = {
   transform: {
     ...tsjPreset.transform
   },
-  coverageDirectory: path.join(__dirname, '../coverage'),
+  coverageDirectory: path.join(__dirname, './coverage'),
   collectCoverageFrom: [
     '**/src/**/*.ts',
     '!**/src/types/**',
