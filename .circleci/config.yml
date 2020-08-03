@@ -11,7 +11,11 @@ jobs:
 
       - run:
           name: "Build docker containers from docker-compose.test.yml"
-          command: docker-compose -f docker-compose.test.yml up --build  
+          command: docker-compose -f docker-compose.test.yml up --build 
+
+      - run:
+          name: Push test result to codecov
+          command: bash <(curl -s https://codecov.io/bash) 
 
 workflows:
     server:

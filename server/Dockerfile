@@ -17,5 +17,4 @@ CMD [ "npm", "run", "dev" ]
 # Test Stage
 FROM dev AS test
 USER root
-RUN npm run test:ci
-CMD [ "bash", "<(curl -s https://codecov.io/bash)" ]
+CMD [ "npm", "run", "test:ci" ]
