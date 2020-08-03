@@ -17,4 +17,5 @@ CMD [ "npm", "run", "dev" ]
 # Test Stage
 FROM dev AS test
 USER root
+RUN printenv
 CMD [ "npm", "run", "test:ci" ]
