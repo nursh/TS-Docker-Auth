@@ -37,5 +37,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "is-ci": "^2.0.0",
+    "is-ci-cli": "^2.1.2"
   }
 }
