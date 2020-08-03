@@ -18,4 +18,4 @@ CMD [ "npm", "run", "dev" ]
 FROM dev AS test
 USER root
 RUN npm run test:ci
-CMD [ "bash", "<(curl", "-s", "https://codecov.io/bash)" ]
+CMD [ "bash", "<(curl -s https://codecov.io/bash)" ]
