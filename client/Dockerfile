@@ -13,6 +13,6 @@ ENTRYPOINT ["/tini", "--"]
 CMD ["npm", "start"]
 
 
-FROM dev as test
+FROM base as test
 USER root
 CMD ["npm", "test"]
