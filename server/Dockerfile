@@ -18,4 +18,4 @@ CMD [ "npm", "run", "dev" ]
 FROM dev AS test
 USER root
 RUN printenv
-CMD [ "npm", "run", "test:ci" ]
+CMD [ "npm", "run", "test" ]

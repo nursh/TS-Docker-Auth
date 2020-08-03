@@ -11,3 +11,5 @@ services:
       - /usr/src/app/node_modules
       - ./server:/app
       - ./coverage:/usr/src/app/coverage
+    environment:
+      - CI
