@@ -5,24 +5,31 @@ services:
     image: server
     build:
       context: ./server
-      target: test
+      target: dev
     ports:
       - "8080:8080"
     volumes:
       - /usr/src/app/node_modules
       - ./server:/app
       - ./coverage:/usr/src/app/coverage
-    environment:
-      - CI
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+  mongo:
+    image: mongo:4.4-bionic
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
+
   client:
+    stdin_open: true
     image: client
     build:
       context: ./client
-      target: test
+      target: dev
     ports:
       - "3000:3000"
     volumes:
       - /usr/src/app/node_modules
       - ./client:/app
-    environment:
-      - CI
+

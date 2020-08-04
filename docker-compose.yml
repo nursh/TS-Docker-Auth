@@ -15,6 +15,6 @@ services:
       - mongo
 
   mongo:
-    image: mongo:3-xenial
+    image: mongo:4.4-bionic
 
 

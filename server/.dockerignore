@@ -2,3 +2,5 @@ node_modules/
 .git/
 docker-compose*.yml
 tmp/
+Dockerfile
+coverage/

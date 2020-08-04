@@ -14,10 +14,10 @@
       "./src/types",
       "./node_modules/@types"
     ],
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "types": [ "src/types/index.ts" ],
-      "utils/*": [ "src/utils/*" ]
+      "types": ["./types/index.ts"],
+      "utils": ["./utils"]
     }
   },
   "exclude": [
