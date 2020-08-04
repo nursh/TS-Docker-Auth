@@ -4,7 +4,7 @@ import { ApolloServer } from 'apollo-server-express';
 import { makeExecutableSchema } from 'graphql-tools';
 import { applyMiddleware } from 'graphql-middleware';
 import dotenv from 'dotenv';
-import 'module-alias/register';
+// import 'module-alias/register';
 
 import { typeDefs, resolvers } from './graphql-config';
 import { permissions } from './permissions';
