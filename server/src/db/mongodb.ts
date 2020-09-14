@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
-import { Database } from 'types';
+import { Database } from 'lib/types';
 
-const url = `mongodb://mongo:27017/ts-docker`;
+const url = `mongodb://localhost:27017/ts-docker`;
 
 export const connectDatabase = async (): Promise<Database> => {
   const client = await MongoClient.connect(url, {

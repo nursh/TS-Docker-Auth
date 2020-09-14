@@ -3,13 +3,26 @@ import { gql } from 'apollo-server-express';
 export const typeDefs = gql`
   type Query {
     books: [Book!]!
+    googleUrl: String!
+    githubUrl: String!
+    facebookUrl: String!
   }
 
   type Mutation {
-    addBook(title: String!): String!
-    login(login: LoginInput!): String!
+    login(login: JWTLoginInput!): String!
+    googleLogin(input: AuthLoginInput): String!
+    githubLogin(input: AuthLoginInput): String!
+    facebookLogin(input: FacebookLoginInput): String!
     logout: String!
     register(user: UserInput!): String!
+  }
+
+  input AuthLoginInput {
+    code: String!
+  }
+
+  input FacebookLoginInput {
+    code: String!
   }
 
   input UserInput {
@@ -19,7 +32,7 @@ export const typeDefs = gql`
     role: Role!
   }
 
-  input LoginInput {
+  input JWTLoginInput {
     name: String!
     password: String!
   }

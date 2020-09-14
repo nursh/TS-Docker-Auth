@@ -10,7 +10,7 @@ services:
       - "8080:8080"
     volumes:
       - /usr/src/app/node_modules
-      - ./server:/app
+      - ./server:/usr/src/app
       - ./coverage:/usr/src/app/coverage
     environment:
       - CI
@@ -23,6 +23,6 @@ services:
       - "3000:3000"
     volumes:
       - /usr/src/app/node_modules
-      - ./client:/app
+      - ./client:/usr/src/app
     environment:
       - CI

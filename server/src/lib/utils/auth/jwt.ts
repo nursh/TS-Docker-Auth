@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import { Role } from 'types';
-import { assignPermissions } from './roles-permissions';
+import { Role } from 'lib/types';
+import { assignPermissions } from '../roles-permissions';
 
 export const generateAccessToken = (payload: string | object) => {
   return jwt.sign(payload, process.env.ACCESS_TOKEN as string, {

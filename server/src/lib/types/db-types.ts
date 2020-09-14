@@ -1,5 +1,5 @@
 import { Collection, ObjectId } from 'mongodb';
-import { Role } from './types';
+import { Role } from 'lib/types';
 
 export interface DBUser {
   _id: ObjectId;

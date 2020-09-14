@@ -11,13 +11,14 @@
     "esModuleInterop": true,                                        
     "resolveJsonModule": true,
     "typeRoots": [
-      "./src/types",
+      "src/lib/types",
       "./node_modules/@types"
     ],
     "baseUrl": "./src",
     "paths": {
-      "types": ["types/index.ts"],
-      "utils": ["utils/*"]
+      "types": ["lib/types/index.ts"],
+      "utils": ["lib/utils/*"],
+      "utils/auth": ["lib/utils/auth/index.ts"]
     }
   },
   "exclude": [

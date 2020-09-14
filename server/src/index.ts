@@ -1,17 +1,17 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express, { Application } from 'express';
 import { ApolloServer } from 'apollo-server-express';
 
 import { makeExecutableSchema } from 'graphql-tools';
 import { applyMiddleware } from 'graphql-middleware';
-import dotenv from 'dotenv';
-// import 'module-alias/register';
 
 import { typeDefs, resolvers } from './graphql-config';
 import { permissions } from './permissions';
 import { connectDatabase } from './db/mongodb';
-import { getUser } from 'utils/auth';
+import { getUser } from 'lib/utils/auth';
 
-dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,8 +26,10 @@ async function start(app: Application) {
 
   const server = new ApolloServer({
     schema,
-    context: ({ req }) => ({
+    context: ({ req, res }) => ({
       db,
+      req,
+      res,
       user: getUser(req)
     })
   });

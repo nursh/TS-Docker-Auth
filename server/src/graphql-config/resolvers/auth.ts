@@ -1,11 +1,11 @@
-import { Context, UserArgs, LoginArgs } from 'types';
-import { generateAccessToken, createPayload } from 'utils/jwt';
+import { Context, UserArgs, JWTLoginArgs } from 'lib/types';
+import { generateAccessToken, createPayload } from 'lib/utils/auth';
 
 export const authResolvers = {
   Mutation: {
-    login: async (_: undefined, args: { login: LoginArgs }, ctx: Context) => {
+    login: async (_: undefined, { login }: JWTLoginArgs, ctx: Context) => {
       try {
-        const { name, password } = args.login;
+        const { name, password } = login;
         const { db } = ctx;
         const user = await db.users.findOne({ name });
         if (!user) {
@@ -28,9 +28,9 @@ export const authResolvers = {
       }
     },
 
-    register: async (_: undefined, args: { user: UserArgs }, ctx: Context) => {
+    register: async (_: undefined, { user }: UserArgs, ctx: Context) => {
       try {
-        const { name, password, email, role } = args.user;
+        const { name, password, email, role } = user;
         const { db } = ctx;
 
         // Verify the user does not exist in the db

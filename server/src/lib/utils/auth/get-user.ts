@@ -1,6 +1,6 @@
 import { Request } from 'express';
-import { JWTUser } from 'types';
-import { verifyAccessToken } from 'utils/jwt';
+import { JWTUser } from 'lib/types';
+import { verifyAccessToken } from 'lib/utils/auth';
 
 export function getUser(req: Request) {
   const authHeader = req.headers.authorization;

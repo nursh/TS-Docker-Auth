@@ -1,0 +1,37 @@
+Project To do:
+  Backend General:
+    ☐ Register a user and return the user
+    ☐ Get cookie dependency and add it to auth resolvers
+    ☐ Add logout resolver to the code
+  Frontend General:
+    ☐ Add cookie handling in Apollo Server
+    ✔ Create component to route to after authentication @done(20-09-12 15:08)
+    ☐ Refactor Auth GraphQL queries to use custom hooks
+  Google Auth:
+    ✔ Install googleapis dependency @done(20-09-12 10:43)
+    ✔ Generate Google Auth URL @done(20-09-12 10:43)
+    ✔ Generate Google token @done(20-09-12 10:43)
+    ☐ Redirect Google after authentication
+  Github Auth:
+    Write Helper functions for Github Auth:
+      ✔ Generate Github URL @started(20-09-12 15:20) @done(20-09-12 15:30) @lasted(10m5s)
+      ✔ Handle code gotten from the frontend @started(20-09-12 15:55) @done(20-09-12 15:55) @lasted(6s)
+      ✔ Get the Redirect URL, Client Code from Github API @done(20-09-12 15:30)
+    ✔ Add Mutation and Query to GraphQL Typedefs @started(20-09-12 15:09) @done(20-09-12 15:09) @lasted(46s)
+    ✔ Write resolvers for the Query and Mutation @done(20-09-13 17:15)
+    ✔ Write Query and Mutation for the Frontend @started(20-09-12 15:10) @done(20-09-12 15:15) @lasted(5m53s)
+    ✔ Generate code for Typescript frontend @started(20-09-12 15:16) @done(20-09-12 15:18) @lasted(2m31s)
+    ✔ Handle Authentication in Signin Component @done(20-09-13 17:15)
+    ☐ Redirect Github after authentication
+  Facebook Auth:
+    ☐ Write Helper functions for Facebook Auth
+      ✔ Generate Facebook URL @done(20-09-14 18:47)
+      ✔ Handle code gotten from the frontend @done(20-09-14 18:47)
+      ✔ Get the Redirect URL, Client Code from Facebook API @done(20-09-14 10:27)
+    ✔ Add Mutation and Query to GraphQL Typedefs @done(20-09-14 10:10)
+    ✔ Write resolvers for the Query and Mutation @done(20-09-14 18:47)
+    ✔ Write Query and Mutation for the Frontend @done(20-09-14 10:53)
+    ✔ Generate code for Typescript frontend @done(20-09-14 10:38)
+    ✔ Handle Authentication in Signin Component @done(20-09-14 10:53)
+    ☐ Redirect Facebook after authentication
+     

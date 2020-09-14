@@ -1,4 +1,4 @@
-import { Context, Book } from 'types';
+import { Context, Book } from 'lib/types';
 
 const books: Book[] = [
   {

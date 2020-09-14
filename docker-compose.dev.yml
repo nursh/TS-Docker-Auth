@@ -10,14 +10,17 @@ services:
       - "8080:8080"
     volumes:
       - /usr/src/app/node_modules
-      - ./server:/app
+      - ./server:/usr/src/app
       - ./coverage:/usr/src/app/coverage
     depends_on:
       mongo:
         condition: service_healthy
 
+
   mongo:
     image: mongo:4.4-bionic
+    logging:
+        driver: none
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
 
@@ -31,5 +34,4 @@ services:
       - "3000:3000"
     volumes:
       - /usr/src/app/node_modules
-      - ./client:/app
-
+      - ./client:/usr/src/app
