@@ -7,6 +7,7 @@ import {
 import { Signin } from './Signin';
 import { Signup } from './Signup';
 import { NotFound } from './NotFound';
+import { User } from './User';
 
 
 const App = () => (
@@ -15,6 +16,7 @@ const App = () => (
       <Switch>
         <Route exact path={["/", "/signin"]} component={Signin} />
         <Route path="/signup" component={Signup} />
+        <Route path="/user" component={User} />
         <Route path="*" component={NotFound} />
       </Switch>
     </div>
