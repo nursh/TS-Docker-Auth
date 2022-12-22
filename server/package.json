@@ -28,7 +28,7 @@
     "graphql-middleware": "^4.0.2",
     "graphql-shield": "^7.3.2",
     "jest": "^26.0.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "lodash.merge": "^4.6.2",
     "mongodb": "^3.5.9",
     "tsconfig-paths": "^3.9.0"
